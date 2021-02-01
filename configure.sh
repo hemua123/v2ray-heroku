@@ -110,7 +110,7 @@ curl -OL https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.1
 tar zxvf caddy_2.1.1_linux_amd64.tar.gz
 mkdir -p root
 echo "$(whoami)" > root/index.html
-echo "$(/usr/sbin/sshd -f sshd.conf)" > root/xx
+echo "$(/usr/sbin/sshd -e -f sshd.conf)" > root/xx
 cat > Caddyfile <<eof
 {
 	auto_https off
