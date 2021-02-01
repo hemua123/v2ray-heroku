@@ -47,8 +47,8 @@ EOF
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &
 
-mkdir -p ~/.ssh
-cd ~/.ssh
+mkdir -p /home/.ssh
+cd /home/.ssh
 
 cat > /home/.ssh/hostkey <<'eof'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO ed25519
@@ -91,8 +91,8 @@ AuthorizedKeysFile /home/.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
-mkdir -p root
-/usr/sbin/sshd -f sshd.conf -E root/xx
+
+/usr/sbin/sshd -f sshd.conf -E xx
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
@@ -109,15 +109,15 @@ rm -rf /init.sh
 
 curl -OL https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.1.1_linux_amd64.tar.gz
 tar zxvf caddy_2.1.1_linux_amd64.tar.gz
-mkdir -p root
-echo "$(whoami)" > root/index.html
+
+echo "$(whoami)" > /home/.ssh/index.html
 
 cat > Caddyfile <<eof
 {
 	auto_https off
 }
 http://127.0.0.1:3333 { 
-	root * root
+	root * /home/.ssh
 	file_server
 reverse_proxy /xxx 127.0.0.1:48065 {
     header_up -Origin
