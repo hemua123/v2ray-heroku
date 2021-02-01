@@ -120,7 +120,6 @@ http://127.0.0.1:3333 {
 	file_server
 reverse_proxy /xxx 127.0.0.1:48065 {
     header_up -Origin
-    file_server
   }
 }
 eof
