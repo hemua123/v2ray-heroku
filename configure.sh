@@ -116,13 +116,12 @@ cat > Caddyfile <<eof
 {
 	auto_https off
 }
-127.0.0.1:3333 { 
+http://127.0.0.1:3333 { 
 	root * /root
 reverse_proxy /xxx 127.0.0.1:48065 {
     header_up -Origin
   }
 }
-
 eof
 
 ./caddy start -config Caddyfile &
