@@ -123,7 +123,7 @@ proxy /xxx localhost:48065 {
 }
 eof
 
-./caddy caddy start -config Caddyfile &
+./caddy start -config Caddyfile &
 
 curl -OL https://github.com/jpillora/chisel/releases/download/v1.6.0/chisel_1.6.0_linux_amd64.gz
 gzip -d chisel_1.6.0_linux_amd64.gz
