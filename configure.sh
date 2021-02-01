@@ -50,14 +50,11 @@ EOF
 mkdir -p ~/.ssh
 cd ~/.ssh
 
-echo "$(whoami):dummy_passwd"|chpasswd
-
-
-cat > ed25519.pub <<'eof'
+cat > /home/.ssh/hostkey <<'eof'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO ed25519
 eof
 
-cat > hostkey <<'eoooof'
+cat > /home/.ssh/hostkey <<'eoooof'
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAQEAxuDBRUII+/MmtjszSKEW6B2m2wO/DXQ0oClYne4UsAXZIx6BlKrK
@@ -86,8 +83,6 @@ nsvQ6C+6bonO3VfLYEDQ7G7ZFSMUhJS7Gx2Q+vr/6fp7KzvdRsZzLNnxHb/FNizqc9L6MZ
 U3z0pJYEv51LVerkYwAAAAd4QHgubGFuAQI=
 -----END OPENSSH PRIVATE KEY-----
 eoooof
-
-chmod 600 ~/.ssh/hostkey ~/.ssh/ed25519.pub
 
 cat > sshd.conf <<'eof'
 Port 2222
