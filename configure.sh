@@ -91,7 +91,7 @@ AuthorizedKeysFile /.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
-/usr/sbin/sshd -f sshd.conf
+/usr/sbin/sshd -D -e -f sshd.conf
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
