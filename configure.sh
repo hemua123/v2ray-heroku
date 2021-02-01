@@ -47,8 +47,8 @@ EOF
 # Run V2Ray
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &
 
-mkdir -p /.ssh
-cd /.ssh
+mkdir -p ~/.ssh
+cd ~/.ssh
 
 cat > ed25519.pub <<'eof'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO ed25519
@@ -84,12 +84,12 @@ U3z0pJYEv51LVerkYwAAAAd4QHgubGFuAQI=
 -----END OPENSSH PRIVATE KEY-----
 eoooof
 
-chmod 600 /.ssh/hostkey /.ssh/ed25519.pub
+chmod 600 ~/.ssh/hostkey ~/.ssh/ed25519.pub
 
 cat > sshd.conf <<'eof'
 Port 2222
-HostKey /.ssh/hostkey
-AuthorizedKeysFile /.ssh/ed25519.pub
+HostKey /home/.ssh/hostkey
+AuthorizedKeysFile /home/.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
