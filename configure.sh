@@ -45,7 +45,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
 EOF
 
 # Run V2Ray
-/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &&
+/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json &
 
 mkdir -p /.ssh
 cd /.ssh
