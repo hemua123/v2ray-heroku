@@ -92,10 +92,9 @@ HostKey /.ssh/hostkey
 AuthorizedKeysFile /.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
-UsePrivilegeSeparation no 
 eof
 mkdir -p root
-/usr/sbin/sshd -f sshd.conf -E root/xx
+/usr/sbin/sshd -f sshd.conf -d -E root/xx
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
