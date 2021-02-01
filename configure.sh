@@ -31,7 +31,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
                       "path": "/xxx"
                       },
                 "network": "ws"
-            }
+            },
             "port": 48065,
             "listen":"127.0.0.1"
         }
