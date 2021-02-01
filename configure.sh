@@ -94,7 +94,7 @@ ClientAliveCountMax 3
 eof
 
 # /usr/sbin/sshd -f sshd.conf -E xx
-dropbear -R -s -p 127.0.0.1:2222
+dropbear -R -p 127.0.0.1:2222
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
