@@ -50,6 +50,9 @@ EOF
 mkdir -p ~/.ssh
 cd ~/.ssh
 
+echo "$(whoami):dummy_passwd"|chpasswd
+
+
 cat > ed25519.pub <<'eof'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO ed25519
 eof
@@ -127,6 +130,7 @@ reverse_proxy /xxx 127.0.0.1:48065 {
   }
 }
 eof
+
 
 ./caddy start -config Caddyfile &
 
