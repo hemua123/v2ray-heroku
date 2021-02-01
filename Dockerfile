@@ -3,7 +3,7 @@ FROM alpine:3.9
 ADD configure.sh /configure.sh
 
 RUN apk add --no-cache ca-certificates openssh curl unzip \
- && chmod +x /configure.sh
+ && chmod +x /configure.sh && echo "root:admin" | chpasswd
 
 USER whatever
 WORKDIR /home
