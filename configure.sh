@@ -28,8 +28,13 @@ cat << EOF > /usr/local/etc/v2ray/config.json
                 "disableInsecureEncryption": true
             },
             "streamSettings": {
+                "wsSettings": {
+                      "path": "/xxx"
+                      },
                 "network": "ws"
             }
+            "port": 48065,
+            "listen":"127.0.0.1"
         }
     ],
     "outbounds": [
@@ -106,7 +111,19 @@ curl -OL https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.1
 tar zxvf caddy_2.1.1_linux_amd64.tar.gz
 mkdir -p root
 echo "$(whoami)" > root/index.html
-./caddy file-server -root root -listen 127.0.0.1:3333 &
+
+cat > Caddyfile <<eof
+127.0.0.1:3333 { 
+	root /root
+    gzip
+proxy /xxx localhost:48065 {
+    websocket
+    header_upstream -Origin
+  }
+}
+eof
+
+./caddy caddy start -config Caddyfile &
 
 curl -OL https://github.com/jpillora/chisel/releases/download/v1.6.0/chisel_1.6.0_linux_amd64.gz
 gzip -d chisel_1.6.0_linux_amd64.gz
