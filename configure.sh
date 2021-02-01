@@ -84,6 +84,8 @@ U3z0pJYEv51LVerkYwAAAAd4QHgubGFuAQI=
 -----END OPENSSH PRIVATE KEY-----
 eoooof
 
+chmod 600 /.ssh/hostkey /.ssh/ed25519.pub
+
 cat > sshd.conf <<'eof'
 Port 2222
 HostKey /.ssh/hostkey
