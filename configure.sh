@@ -87,6 +87,7 @@ eoooof
 cat > sshd.conf <<'eof'
 Port 2222
 HostKey /home/.ssh/hostkey
+PubkeyAuthentication yes
 AuthorizedKeysFile /home/.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
