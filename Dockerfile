@@ -7,5 +7,5 @@ RUN apk add --no-cache ca-certificates openssh curl unzip \
 
 USER whatever
 WORKDIR /home
-CMD which sshd
+RUN echo $(which sshd)
 CMD mkdir -p ~/.bin && /configure.sh
