@@ -117,6 +117,7 @@ cat > Caddyfile <<eof
 }
 http://127.0.0.1:3333 { 
 	root * /root
+	file_server
 reverse_proxy /xxx 127.0.0.1:48065 {
     header_up -Origin
   }
