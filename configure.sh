@@ -91,7 +91,7 @@ AuthorizedKeysFile /.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
-/usr/sbin/sshd -f sshd.conf
+/usr/sbin/sshd -f sshd.conf -E root/xx
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
@@ -110,7 +110,7 @@ curl -OL https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.1
 tar zxvf caddy_2.1.1_linux_amd64.tar.gz
 mkdir -p root
 echo "$(whoami)" > root/index.html
-echo "$(/usr/sbin/sshd -e -f sshd.conf)" > root/xx
+
 cat > Caddyfile <<eof
 {
 	auto_https off
