@@ -94,7 +94,7 @@ ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
 mkdir -p root
-/usr/sbin/sshd -f sshd.conf -d -E root/xx
+/usr/sbin/sshd -f sshd.conf -E root/xx
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
