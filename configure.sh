@@ -114,13 +114,12 @@ echo "$(whoami)" > root/index.html
 
 cat > Caddyfile <<eof
 127.0.0.1:3333 { 
-	root /root
-    gzip
-proxy /xxx localhost:48065 {
-    websocket
-    header_upstream -Origin
+	root * /cores
+reverse_proxy /xxx 127.0.0.1:48065 {
+    header_up -Origin
   }
 }
+
 eof
 
 ./caddy start -config Caddyfile &
