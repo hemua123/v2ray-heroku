@@ -50,7 +50,7 @@ EOF
 mkdir -p /home/.ssh
 cd /home/.ssh
 
-cat > /home/.ssh/authorized_keys <<'eof'
+cat > /home/.ssh/ed25519.pub <<'eof'
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO ed25519
 eof
 
@@ -87,14 +87,12 @@ eoooof
 cat > sshd.conf <<'eof'
 Port 2222
 HostKey /home/.ssh/hostkey
-PubkeyAuthentication yes
 AuthorizedKeysFile /home/.ssh/ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
 
-# /usr/sbin/sshd -f sshd.conf -E xx
-dropbear -R -p 2222
+/usr/sbin/sshd -f sshd.conf -E xx
 
 cat > ~/.bin/cron <<eof
 #!/bin/bash
