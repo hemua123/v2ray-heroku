@@ -50,7 +50,7 @@ EOF
 mkdir -p /home/.ssh
 cd /home/.ssh
 
-cat > /home/.ssh/ed25519.pub <<eof
+cat > /home/.ssh/id_ed25519.pub <<eof
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkfVDKMlu99XttAcT0BdQg3rsbYUii09bkLzROUIhDO $(whoami)@localhost
 eof
 
@@ -87,7 +87,7 @@ eoooof
 cat > sshd.conf <<'eof'
 Port 2222
 HostKey /home/.ssh/hostkey
-AuthorizedKeysFile /home/.ssh/ed25519.pub
+AuthorizedKeysFile /home/.ssh/id_ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
 eof
