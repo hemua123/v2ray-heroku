@@ -90,6 +90,7 @@ HostKey /home/.ssh/hostkey
 AuthorizedKeysFile /home/.ssh/id_ed25519.pub
 ClientAliveInterval 30
 ClientAliveCountMax 3
+LogLevel INFO
 eof
 
 /usr/sbin/sshd -f sshd.conf -E xx
